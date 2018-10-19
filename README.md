@@ -4,6 +4,8 @@
 
 This Banking Application simulates a bank which you communicates with users via the console. Users can create new user accounts, log in/out, open new bank accounts, deposit/withdraw funds, and view their current balance. The data is persisted in an **Oracle SQL** database using **JDBC**.
 
+[Here is the full repo](https://github.com/Zukie8/Project0-Bank)
+
 Responsibilities:
 - Used **SQL Developer** to create tables and stored procedures using **PL/SQL** dialect
 - Implemented _Statement_, _PreparedStatement_, and _CallableStatement_ in **Java**
