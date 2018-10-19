@@ -1,0 +1,44 @@
+CREATE TABLE BANK_USERS(
+    USER_NAME VARCHAR2(100) CONSTRAINT PK_BANK_USERS PRIMARY KEY, -- UNIQUE
+    PASS_WORD VARCHAR2(100),
+    BALANCE NUMBER(38,2) --20 digits, 2 after the decimal
+);
+
+--truncate table bank_users;
+
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('atokley0', 'Lna0GcSMiqOa', 8535.82);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('ileinthall1', 'ez365FngcH', 57664983.45);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('cshoesmith2', 'eouQvN', 97839057.44);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('edaunay3', '40FGVngVO', 51.55);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('oost4', 'GyIIBtdxl', 3504837.39);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('tedgars5', 'QGYLoqkjX', 743.22);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('pshenton6', 'ZEyZxp', 4781754.15);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('pgamlen7', 'mC5EVK', 57420.52);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('pbarbary8', '990um4TzsHb', 64941304.19);
+insert into BANK_USERS (USER_NAME, PASS_WORD, BALANCE) values ('dhoulaghan9', 'KaKs9xNTkCp', 1094.15);
+
+commit;
+
+select * from bank_users;
+
+CREATE OR REPLACE PROCEDURE DEPOSIT_AMOUNT(CUST IN VARCHAR2, VAL IN NUMBER)
+IS
+BEGIN
+    UPDATE BANK_USERS -- TABLE
+    SET BALANCE = BALANCE + VAL -- INCREASE BALANCE
+    WHERE USER_NAME = CUST; -- DO THIS TO CORRECT USER
+END;
+/
+COMMIT;
+
+CREATE OR REPLACE PROCEDURE WITHDRAW_AMOUNT(CUST IN VARCHAR2, VAL IN NUMBER)
+IS
+BEGIN
+    UPDATE BANK_USERS -- TABLE
+    SET BALANCE = BALANCE - VAL -- DECREASE BALANCE
+    WHERE USER_NAME = CUST; -- DO THIS TO CORRECT USER
+END;
+/
+COMMIT;
+
+select * from bank_users;
